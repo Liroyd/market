@@ -1,0 +1,16 @@
+package com.market.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping("/")
+public class HomeController {
+	@RequestMapping(method = RequestMethod.GET)
+	public String fillParametersForWelcomePage(ModelMap model) {
+		model.addAttribute("message", "Welcome to my Market!");
+		return "index";
+	}
+}

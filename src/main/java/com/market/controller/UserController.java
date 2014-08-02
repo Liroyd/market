@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/")
-public class WelcomeController {
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", "Welcome to my Market!");
-		return "index";
-	}
+@RequestMapping("/user/")
+public class UserController {
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String fillParametersForUserPage(ModelMap model) {
+        model.addAttribute("userGreeting", "Hello User!");
+        return "user";
+    }
 }
