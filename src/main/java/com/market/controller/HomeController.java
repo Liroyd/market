@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String fillParametersForWelcomePage(ModelMap model) {
 		model.addAttribute("message", "Welcome to my Market!");

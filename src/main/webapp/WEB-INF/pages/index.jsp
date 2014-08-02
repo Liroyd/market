@@ -1,7 +1,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 <spring:url value="/admin/" var="adminUrl"/>
 <spring:url value="/user/" var="userUrl"/>
-<spring:url value="/j_spring_security_logout" var="logOut" />
+<spring:url value="/logout/" var="logOut" />
 
 <html>
 <body>
@@ -11,8 +13,11 @@
 <br/>
 <a href="${userUrl}">User's page</a>
 <br/>
-<br/>
-<a href="${logOut}">Logout</a>
+
+<sec:authorize access="isAuthenticated()">
+    <br/>
+    <a href="${logOut}">Logout</a>
+</sec:authorize>
 
 </body>
 </html>

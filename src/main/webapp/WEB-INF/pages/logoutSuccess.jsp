@@ -1,15 +1,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <spring:url value="/" var="homeUrl" />
-<spring:url value="/logout/" var="logOut" />
 
 <html>
 <body>
-<h1>${userGreeting}</h1>
-
+<h1>${farewellMessage}</h1>
+<br/>
 <a href="${homeUrl}">Go Home!</a>
-<br>
-<br>
-<a href="${logOut}">Logout</a>
 
 </body>
 </html>
