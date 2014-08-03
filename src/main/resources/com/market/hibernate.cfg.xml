@@ -9,6 +9,7 @@
       <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
       <!-- Mapping files -->
       <mapping resource="com/market/model/User.hbm.xml"/>
+      <mapping resource="com/market/model/Role.hbm.xml"/>
 
   </session-factory>
 </hibernate-configuration>

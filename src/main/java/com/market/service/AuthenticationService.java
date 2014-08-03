@@ -1,6 +1,7 @@
 package com.market.service;
 
 import com.market.dao.UserDAO;
+import com.market.model.Role;
 import com.market.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -31,14 +33,15 @@ public class AuthenticationService implements UserDetailsService {
                 true,
                 true,
                 true,
-                getAuthorities(user.getRole())
+                getAuthorities(user.getRoles())
         );
     }
 
-    public Collection<? extends GrantedAuthority> getAuthorities(String role) {
+    public Collection<? extends GrantedAuthority> getAuthorities(Set<Role> roles) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        SimpleGrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role);
-        authorities.add(grantedAuthority);
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
         return authorities;
     }
 

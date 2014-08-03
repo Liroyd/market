@@ -1,22 +1,23 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
-<spring:url value="/admin/" var="adminUrl"/>
-<spring:url value="/user/" var="userUrl"/>
-<spring:url value="/logout/" var="logOut" />
+<spring:url value="/personalPage/" var="personalPage"/>
+<spring:url value="/market/" var="marketUrl"/>
+<spring:url value="/logout/" var="logOutUrl" />
 
 <html>
 <body>
 <h1>${welcomeMessage}</h1>
 
-<a href="${adminUrl}">Admin's page</a>
 <br/>
-<a href="${userUrl}">User's page</a>
+<a href="${personalPage}">Personal Page</a>
+<br/>
+<a href="${marketUrl}">Market</a>
 <br/>
 
 <sec:authorize access="isAuthenticated()">
     <br/>
-    <a href="${logOut}">Logout</a>
+    <a href="${logOutUrl}">Logout</a>
 </sec:authorize>
 
 </body>

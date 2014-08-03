@@ -4,5 +4,6 @@ import com.market.model.User;
 
 public interface UserDAO {
 
-    public User getUser(String login);
+    public User getUser(String name);
+    public boolean hasRole(String userName, String role);
 }
