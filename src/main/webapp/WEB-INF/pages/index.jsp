@@ -7,7 +7,7 @@
 
 <html>
 <body>
-<h1>${message}</h1>
+<h1>${welcomeMessage}</h1>
 
 <a href="${adminUrl}">Admin's page</a>
 <br/>

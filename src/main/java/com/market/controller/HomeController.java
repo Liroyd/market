@@ -11,7 +11,7 @@ public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String fillParametersForWelcomePage(ModelMap model) {
-		model.addAttribute("message", "Welcome to my Market!");
+		model.addAttribute("welcomeMessage", "Welcome to my Market!");
 		return "index";
 	}
 }

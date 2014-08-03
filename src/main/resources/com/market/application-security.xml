@@ -7,18 +7,15 @@
                     http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/user/**" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/user/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
 
         <logout logout-url="/logout/" logout-success-url="/logoutSuccess/"/>
     </http>
 
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN"/>
-                <user name="user" password="user" authorities="ROLE_USER"/>
-            </user-service>
+        <authentication-provider user-service-ref="authenticationService">
+            <password-encoder hash="plaintext" />
         </authentication-provider>
     </authentication-manager>
 </beans:beans>
