@@ -24,7 +24,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:com/market/application-security.xml
-            classpath:com/market/application-context.xml
+            WEB-INF/mvc-configuration-servlet.xml
         </param-value>
     </context-param>
 

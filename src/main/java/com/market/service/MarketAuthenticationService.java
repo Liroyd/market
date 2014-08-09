@@ -3,6 +3,7 @@ package com.market.service;
 import com.market.dao.UserDAO;
 import com.market.model.Role;
 import com.market.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +22,7 @@ import java.util.Set;
 @Transactional(readOnly=true)
 public class MarketAuthenticationService implements UserDetailsService {
 
+    @Autowired
     private UserDAO userDAO;
 
     public UserDetails loadUserByUsername(String login)
@@ -43,9 +45,5 @@ public class MarketAuthenticationService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return authorities;
-    }
-
-    public void setUserDAO(UserDAO userDAO) {
-        this.userDAO = userDAO;
     }
 }

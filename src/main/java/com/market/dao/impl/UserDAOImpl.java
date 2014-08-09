@@ -6,14 +6,18 @@ import com.market.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
 
+@Service
 @Transactional(readOnly=true)
 public class UserDAOImpl implements UserDAO{
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -43,9 +47,5 @@ public class UserDAOImpl implements UserDAO{
 
     private Session openSession() {
         return sessionFactory.getCurrentSession();
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 }
