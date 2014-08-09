@@ -1,5 +1,5 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<spring:url value="/" var="homeUrl" />
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<spring:url value="/" var="homeUrl"/>
 <spring:url value="/logout/" var="logOutUrl"/>
 
 <html>

@@ -17,7 +17,7 @@
 
     <authentication-manager>
         <authentication-provider user-service-ref="marketAuthenticationService">
-            <password-encoder hash="plaintext" />
+            <password-encoder hash="plaintext"/>
         </authentication-provider>
     </authentication-manager>
 
