@@ -6,13 +6,11 @@ import com.market.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
 
-@Service
 @Transactional(readOnly=true)
 public class UserDAOImpl implements UserDAO{
 

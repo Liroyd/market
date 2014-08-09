@@ -19,7 +19,7 @@ import java.util.Set;
 
 @Service
 @Transactional(readOnly=true)
-public class AuthenticationService implements UserDetailsService {
+public class MarketAuthenticationService implements UserDetailsService {
 
     private UserDAO userDAO;
 
