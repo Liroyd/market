@@ -10,6 +10,15 @@ public class User {
     private String password;
     private Set<Role> roles;
 
+    public User() {
+    }
+
+    public User(String name, String password, Set<Role> roles) {
+        this.name = name;
+        this.password = password;
+        this.roles = roles;
+    }
+
     public String getName() {
         return name;
     }
@@ -32,5 +41,10 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }

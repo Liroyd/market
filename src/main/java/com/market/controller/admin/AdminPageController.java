@@ -1,8 +1,10 @@
-package com.market.controller;
+package com.market.controller.admin;
 
 
-import com.market.dao.RoleDAO;
 import com.market.model.Role;
+import com.market.model.User;
+import com.market.service.RoleService;
+import com.market.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,22 +15,30 @@ import java.security.Principal;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin/")
-public class AdminController {
+@RequestMapping("admin")
+public class AdminPageController {
 
     @Autowired
-    private RoleDAO roleDAO;
+    private RoleService roleService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String fillParametersForAdminPage(ModelMap model, Principal principal) {
+        fillParameters(model, principal);
+        return "admin";
+    }
+
+    private void fillParameters(ModelMap model, Principal principal) {
         String greetingMessage = getGreetingMessage(principal);
         model.addAttribute("greetingMessage", greetingMessage);
 
-        List<Role> roles = roleDAO.getRoles();
+        List<Role> roles = roleService.getRoles();
         model.addAttribute("userRoles", roles);
-        model.addAttribute("userName", "");
 
-        return "admin";
+        List<User> users = userService.getUsers();
+        model.addAttribute("users", users);
     }
 
     private String getGreetingMessage(Principal principal) {

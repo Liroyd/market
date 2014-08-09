@@ -1,7 +1,7 @@
 package com.market.controller;
 
 import com.market.Constants;
-import com.market.dao.UserDAO;
+import com.market.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,11 +14,11 @@ import java.security.Principal;
 public class UsersPersonalPageController {
 
     @Autowired
-    private UserDAO userDAO;
+    private UserService userService;
 
     @RequestMapping(value = "/personalPage/", method = RequestMethod.GET)
     public String redirectToPersonalPage(ModelMap model, Principal principal) {
-        if (userDAO.hasRole(principal.getName(), Constants.ADMIN_ROLE)) {
+        if (userService.hasRole(principal.getName(), Constants.ADMIN_ROLE)) {
             return "redirect:/admin/";
         }
         fillGreetingMessageForPersonalPage(model, principal);

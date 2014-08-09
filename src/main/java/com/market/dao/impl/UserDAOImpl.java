@@ -7,14 +7,15 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.Set;
 
-@Service
-@Transactional(readOnly=true)
+@Repository
+@Transactional
 public class UserDAOImpl implements UserDAO{
 
     @Autowired
@@ -29,6 +30,26 @@ public class UserDAOImpl implements UserDAO{
             return (User) userList.get(0);
         else
             return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<User> getUsers() {
+        Query query = openSession().createQuery("from User");
+        return query.list();
+    }
+
+    @Override
+    public User createUser(String name, String password, Set<Role> roles) {
+        User user = new User(name, password, roles);
+        openSession().save(user);
+        return user;
+    }
+
+    @Override
+    public void deleteUser(String name) {
+        User user = getUser(name);
+        openSession().delete(user);
     }
 
     @Override
