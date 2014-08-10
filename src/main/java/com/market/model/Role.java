@@ -1,7 +1,10 @@
 package com.market.model;
 
+import javax.persistence.Id;
+
 public class Role {
 
+    @Id
     private String name;
 
     public Role() {

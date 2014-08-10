@@ -18,4 +18,8 @@ CREATE TABLE `users` (
    FOREIGN KEY (role)
    REFERENCES roles(name));
 
+  CREATE TABLE `products` (
+  `name` varchar(20) NOT NULL,
+  `price` float,
+  PRIMARY KEY (`name`));
 

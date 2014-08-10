@@ -10,6 +10,7 @@
       <!-- Mapping files -->
       <mapping resource="com/market/model/User.hbm.xml"/>
       <mapping resource="com/market/model/Role.hbm.xml"/>
+      <mapping resource="com/market/model/Product.hbm.xml"/>
 
   </session-factory>
 </hibernate-configuration>

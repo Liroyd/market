@@ -7,14 +7,9 @@
 
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <style>
-        #container { width: 500px; background-color: #fff; margin: 30px auto; padding: 30px; border-radius: 5px; box-shadow: 5px; }
-        .green { font-weight: bold; color: green; }
-        .message { margin-bottom: 10px; }
-        label { width:70px; display:inline-block;}
-        .hide { display: none; }
-        .error { color: red; }
-    </style>
+    <script src="/js/admin.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/css/admin.css" type="text/css"/>
+
 </head>
 
 <body>
@@ -55,75 +50,6 @@
 <br/>
 <br/>
 <a href="${logOutUrl}">Logout</a>
-
-
-<script type="text/javascript">
-
-    $(document).ready(function() {
-
-        $('#addUserForm').submit(function(e) {
-            var userName = $('#userName').val();
-            var roles = $('#userRoles').val();
-            var userPassword = $('#userPassword').val();
-            if(!validateUser(userName, userPassword, roles)) {
-                return false;
-            }
-
-            $.post('${pageContext.request.contextPath}/admin/create', $(this).serialize(), function(response) {
-                if (response.length <= 0) {
-                    var userExistsErrorId = $('#userExistsErrorId');
-                    userExistsErrorId.show();
-                } else {
-                    var successCreationMessage = $('#successCreationMessage');
-                    successCreationMessage.text(response);
-                    successCreationMessage.show();
-
-                    var userName = $('#userName').val();
-                    $("#users").append('<option value="'+userName+'">'+userName+'</option>');
-               }
-            });
-            e.preventDefault();
-        });
-
-        $('#deleteUserForm').submit(function(e) {
-            hideMessagesAndWarnings();
-            $.post('${pageContext.request.contextPath}/admin/delete', $(this).serialize(), function(response) {
-                if (response.length <= 0) {
-                    $('#adminDeletionErrorId').show();
-                } else {
-                    var $successDeletionMessage = $('#successDeletionMessage');
-                    $successDeletionMessage.text(response);
-                    $successDeletionMessage.show();
-
-                    var user = $('#users');
-                    users.remove(users.selectedIndex);
-                }
-            });
-            e.preventDefault();
-        });
-
-    });
-
-    function validateUser(userName, userPassword, roles) {
-        hideMessagesAndWarnings();
-        if(userName == null || userName.length <= 0 || userPassword == null || userPassword.length <= 0 || roles == null) {
-            $('#invalidParametersErrorId').show();
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
-    function hideMessagesAndWarnings() {
-        $('#invalidParametersErrorId').hide();
-        $('#userExistsErrorId').hide();
-        $('#successCreationMessage').hide();
-        $('#successDeletionMessage').hide();
-        $('#adminDeletionErrorId').hide();
-    }
-
-</script>
 
 </body>
 </html>

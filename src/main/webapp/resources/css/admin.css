@@ -1,0 +1,5 @@
+
+.green { font-weight: bold; color: green; }
+label { width:70px; display:inline-block;}
+.hide { display: none; }
+.error { color: red; }
