@@ -77,7 +77,10 @@
                     var successCreationMessage = $('#successCreationMessage');
                     successCreationMessage.text(response);
                     successCreationMessage.show();
-                }
+
+                    var userName = $('#userName').val();
+                    $("#users").append('<option value="'+userName+'">'+userName+'</option>');
+               }
             });
             e.preventDefault();
         });
@@ -91,6 +94,9 @@
                     var $successDeletionMessage = $('#successDeletionMessage');
                     $successDeletionMessage.text(response);
                     $successDeletionMessage.show();
+
+                    var user = $('#users');
+                    users.remove(users.selectedIndex);
                 }
             });
             e.preventDefault();

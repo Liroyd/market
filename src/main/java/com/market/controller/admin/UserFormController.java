@@ -17,7 +17,7 @@ public class UserFormController {
     UserService userService;
 
     @SuppressWarnings("unchecked")
-    @RequestMapping(value = "create", method= RequestMethod.POST)
+    @RequestMapping(value = "create", method = RequestMethod.POST)
     @ResponseBody
     public String createNewUser(User user) {
         if (userService.isUserExists(user.getName())) {
@@ -28,7 +28,7 @@ public class UserFormController {
     }
 
     @SuppressWarnings("unchecked")
-    @RequestMapping(value = "delete", method= RequestMethod.POST)
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
     @ResponseBody
     public String deleteUser(User user) {
       String name = user.getName();

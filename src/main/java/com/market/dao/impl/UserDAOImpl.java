@@ -48,7 +48,8 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void deleteUser(String name) {
-        User user = getUser(name);
+        User user = new User();
+        user.setName(name);
         openSession().delete(user);
     }
 

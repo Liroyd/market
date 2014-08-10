@@ -14,6 +14,8 @@ CREATE TABLE `users` (
   `role` varchar(20) NOT NULL,
    FOREIGN KEY (user)
    REFERENCES users(name)
-   ON DELETE CASCADE);
+   ON DELETE CASCADE,
+   FOREIGN KEY (role)
+   REFERENCES roles(name));
 
 
