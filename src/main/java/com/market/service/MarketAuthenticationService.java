@@ -28,15 +28,19 @@ public class MarketAuthenticationService implements UserDetailsService {
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {
         User user = userDAO.getUser(login);
-        return new org.springframework.security.core.userdetails.User(
-                user.getName(),
-                user.getPassword(),
-                true,
-                true,
-                true,
-                true,
-                getAuthorities(user.getRoles())
-        );
+        if (user != null) {
+            return new org.springframework.security.core.userdetails.User(
+                    user.getName(),
+                    user.getPassword(),
+                    true,
+                    true,
+                    true,
+                    true,
+                    getAuthorities(user.getRoles())
+            );
+        } else {
+            throw new UsernameNotFoundException("User not found");
+        }
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities(Set<Role> roles) {
