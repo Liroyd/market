@@ -16,7 +16,7 @@ public class UsersPersonalPageController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/personalPage/", method = RequestMethod.GET)
+    @RequestMapping(value = "personalPage", method = RequestMethod.GET)
     public String redirectToPersonalPage(ModelMap model, Principal principal) {
         if (userService.hasRole(principal.getName(), Constants.ADMIN_ROLE)) {
             return "redirect:/admin/";

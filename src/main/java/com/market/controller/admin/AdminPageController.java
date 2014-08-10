@@ -24,7 +24,7 @@ public class AdminPageController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String fillParametersForAdminPage(ModelMap model, Principal principal) {
         fillParameters(model, principal);
         return "admin";
