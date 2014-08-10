@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -38,7 +39,18 @@ public class AdminPageController {
         model.addAttribute("userRoles", roles);
 
         List<User> users = userService.getUsers();
+        removeCurrentUserFromList(principal, users);
         model.addAttribute("users", users);
+    }
+
+    private void removeCurrentUserFromList(Principal principal, List<User> users) {
+        Iterator<User> usersIterator = users.iterator();
+        while (usersIterator.hasNext()) {
+            User user = usersIterator.next();
+            if (user.getName().equals(principal.getName())) {
+                usersIterator.remove();
+            }
+        }
     }
 
     private String getGreetingMessage(Principal principal) {
