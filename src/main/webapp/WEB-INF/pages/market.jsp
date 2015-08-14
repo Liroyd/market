@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <spring:url value="/" var="homeUrl"/>
 <spring:url value="/logout/" var="logOutUrl"/>
 
@@ -30,8 +31,11 @@
 
 <a href="${homeUrl}">Go Home!</a>
 <br/>
+
+<sec:authorize access="isAuthenticated()">
 <br/>
 <a href="${logOutUrl}">Logout</a>
+</sec:authorize>
 
 </body>
 </html>
