@@ -18,7 +18,7 @@ public class UsersPersonalPageController {
 
     @RequestMapping(value = "personalPage", method = RequestMethod.GET)
     public String redirectToPersonalPage(ModelMap model, Principal principal) {
-        if (userService.hasRole(principal.getName(), Constants.ADMIN_ROLE)) {
+        if (principal != null && userService.hasRole(principal.getName(), Constants.ADMIN_ROLE)) {
             return "redirect:/admin/";
         }
         fillGreetingMessageForPersonalPage(model, principal);
@@ -26,7 +26,15 @@ public class UsersPersonalPageController {
     }
 
     public void fillGreetingMessageForPersonalPage(ModelMap model, Principal principal) {
-        String greetingMessage = "Hello "+principal.getName()+". What's up?";
+        String greetingMessage = "Hello "+getUserName(principal)+". What's up?";
         model.addAttribute("greetingMessage", greetingMessage);
+    }
+
+    private String getUserName(Principal principal) {
+        if (principal != null) {
+            return principal.getName();
+        } else {
+            return "User";
+        }
     }
 }

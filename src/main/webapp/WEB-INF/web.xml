@@ -3,13 +3,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-	<display-name>Market Application</display-name>
-
     <servlet>
-		<servlet-name>market-mvc-configuration</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <servlet-name>market-mvc-configuration</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                WEB-INF/market-mvc-configuration-servlet.xml
+            </param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
-	</servlet>
+    </servlet>
 
 	<servlet-mapping>
 		<servlet-name>market-mvc-configuration</servlet-name>
@@ -23,10 +27,14 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:com/market/application-security.xml
-            WEB-INF/market-mvc-configuration-servlet.xml
+            classpath:com/market/market-application-context.xml
+            classpath:com/common/security/application-security.xml
+            classpath:com/common/db/db-configuration.xml
         </param-value>
     </context-param>
+
+
+    <!-- Security, can be switched-off, remove filters and application-security.xml -->
 
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
@@ -36,5 +44,7 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!-- Security -->
 
 </web-app>

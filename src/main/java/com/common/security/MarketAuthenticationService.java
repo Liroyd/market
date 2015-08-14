@@ -1,4 +1,4 @@
-package com.market.service;
+package com.common.security;
 
 import com.market.dao.UserDAO;
 import com.market.model.Role;

@@ -1,4 +1,4 @@
-package com.market.controller.security;
+package com.common.security.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("accessDenied")
-public class AccessDeniedController {
+@RequestMapping("logoutSuccess")
+public class LogoutSuccessController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String formFarewellMessage(ModelMap model) {
-        model.addAttribute("accessDeniedMessage", "Sorry... You don't have permission!");
-        return "security/accessDenied";
+        model.addAttribute("farewellMessage", "You have been logged out successfully. Bye bye...");
+        return "security/logoutSuccess";
     }
 }
