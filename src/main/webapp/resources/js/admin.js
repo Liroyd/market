@@ -33,6 +33,8 @@ $(document).ready(function() {
                 var $successDeletionMessage = $('#successDeletionMessage');
                 $successDeletionMessage.text(response);
                 $successDeletionMessage.show();
+
+                $('#users option:selected').remove();
             }
         });
         e.preventDefault();
