@@ -1,14 +1,16 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <spring:url value="/" var="homeUrl"/>
 <spring:url value="/logout/" var="logOutUrl"/>
 
 <html>
 
 <head>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/js/admin.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="/css/admin.css" type="text/css"/>
+    <script src="<c:url value="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/admin.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin.css" type="text/css"/>
 
 </head>
 
@@ -21,9 +23,9 @@
 <form id="addUserForm">
     <h1>Add new user?</h1>
     <label id="userNameLabel" for="userName">Name</label>
-    <input id="userName" name="Name" id="userName"/>
+    <input id="userName" name="Name"/>
     <label id="userPasswordLabel" for="userPassword">Password</label>
-    <input id="userPassword" name="Password" id="userPassword"/>
+    <input id="userPassword" name="Password"/>
     <label id="userRolesLabel">Select Role(s)</label>
     <form:select path="userRoles" id="userRoles" items="${userRoles}" name="Roles" multiple="true"/>
     <input type="submit" value="Add user" />
