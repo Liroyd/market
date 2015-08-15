@@ -9,8 +9,8 @@
 
 <head>
     <script src="<c:url value="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"/>"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/admin.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin.css" type="text/css"/>
+    <script src="${pageContext.request.contextPath}/js/admin.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css" type="text/css"/>
 
 </head>
 
