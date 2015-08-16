@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="/css/market.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/market.css" type="text/css"/>
 </head>
 <body>
 <h1>${marketTitle}</h1>
@@ -34,7 +34,10 @@
 
 <sec:authorize access="isAuthenticated()">
 <br/>
-<a href="${logOutUrl}">Logout</a>
+    <form action="${logOutUrl}" method="post">
+        <input type="submit" value="Log out" />
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
 </sec:authorize>
 
 </body>

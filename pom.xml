@@ -8,7 +8,7 @@
     <name>market</name>
 
     <properties>
-        <spring.version>3.2.4.RELEASE</spring.version>
+        <spring.version>4.0.2.RELEASE</spring.version>
         <hibernate.version>4.2.0.Final</hibernate.version>
     </properties>
 
@@ -53,14 +53,14 @@
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.1</version>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
             <scope>provided</scope>
         </dependency>
 

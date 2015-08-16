@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <spring:url value="/" var="homeUrl"/>
 <spring:url value="/logout/" var="logOutUrl"/>
@@ -21,13 +22,14 @@
 <p>----------------------</p>
 
 <form id="addUserForm">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <h1>Add new user?</h1>
     <label id="userNameLabel" for="userName">Name</label>
     <input id="userName" name="Name"/>
     <label id="userPasswordLabel" for="userPassword">Password</label>
     <input id="userPassword" name="Password"/>
     <label id="userRolesLabel">Select Role(s)</label>
-    <form:select path="userRoles" id="userRoles" items="${userRoles}" name="Roles" multiple="true"/>
+    <form:select path="userRoles" id="userRoles" items="${userRoles}" name="Roles" multiple="multiple"/>
     <input type="submit" value="Add user" />
 
     <div class="error hide" id="invalidParametersErrorId">Please enter valid user information!</div>
@@ -37,6 +39,7 @@
 <p>----------------------</p>
 
 <form id="deleteUserForm">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <h1>Delete Someone?</h1>
     <label id="userNameLabel" for="users">Name</label>
     <form:select path="users" id="users" items="${users}" name="Name"/>
@@ -51,7 +54,13 @@
 <a href="${homeUrl}">Go Home!</a>
 <br/>
 <br/>
-<a href="${logOutUrl}">Logout</a>
+
+<sec:authorize access="isAuthenticated()">
+<form action="${logOutUrl}" method="post">
+    <input type="submit" value="Log out" />
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
+</sec:authorize>
 
 </body>
 </html>
