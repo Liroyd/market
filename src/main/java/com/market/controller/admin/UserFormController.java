@@ -28,7 +28,7 @@ public class UserFormController {
     }
 
     @SuppressWarnings("unchecked")
-    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    @RequestMapping(value = "delete", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteUser(User user) {
       String name = user.getName();

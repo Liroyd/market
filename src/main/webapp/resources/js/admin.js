@@ -24,17 +24,23 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('#deleteUserForm').submit(function(e) {
+    $('#deleteUserButton').click(function(e) {
         hideMessagesAndWarnings();
-        $.post('/admin/delete', $(this).serialize(), function(response) {
-            if (response.length <= 0) {
-                $('#adminDeletionErrorId').show();
-            } else {
-                var $successDeletionMessage = $('#successDeletionMessage');
-                $successDeletionMessage.text(response);
-                $successDeletionMessage.show();
 
-                $('#users option:selected').remove();
+        $.ajax({
+            type: 'DELETE',
+            url: '/admin/delete/',
+            data: $('#deleteUserForm').serialize(),
+            success: function(response) {
+                if (response.length <= 0) {
+                    $('#adminDeletionErrorId').show();
+                } else {
+                    var $successDeletionMessage = $('#successDeletionMessage');
+                    $successDeletionMessage.text(response);
+                    $successDeletionMessage.show();
+
+                    $('#users').find('option:selected').remove();
+                }
             }
         });
         e.preventDefault();

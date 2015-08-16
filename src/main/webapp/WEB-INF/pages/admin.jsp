@@ -40,7 +40,7 @@
     <h1>Delete Someone?</h1>
     <label id="userNameLabel" for="users">Name</label>
     <form:select path="users" id="users" items="${users}" name="Name"/>
-    <input type="submit" value="Delete user"/>
+    <input type="button" value="Delete user" id="deleteUserButton"/>
     <div id="successDeletionMessage" class="green"></div>
     <div class="error hide" id="adminDeletionErrorId"> You can't delete admin!</div>
 </form>
