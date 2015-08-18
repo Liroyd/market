@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String fillParametersForWelcomePage(ModelMap model) {
-		model.addAttribute("welcomeMessage", "Welcome to my Market!");
-		return "index";
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String fillParametersForWelcomePage(ModelMap model) {
+        model.addAttribute("welcomeMessage", "Welcome to my Market!");
+        return "index";
+    }
 
     @RequestMapping(value = "{name}", method = RequestMethod.GET)
     public String putSacredMessage(@PathVariable String name, ModelMap model) {
