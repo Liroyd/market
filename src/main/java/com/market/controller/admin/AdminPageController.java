@@ -1,23 +1,28 @@
 /**
- * Copyright (c) 2015. Liroyd. All rights reserved.
+ * Copyright (c) 2015, Liroyd
+ * All rights reserved.
  */
-
 package com.market.controller.admin;
 
 import com.market.model.Role;
 import com.market.model.User;
 import com.market.service.RoleService;
 import com.market.service.UserService;
+import java.security.Principal;
+import java.util.Iterator;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.security.Principal;
-import java.util.Iterator;
-import java.util.List;
-
+/**
+ * Admin Page Controller.
+ *
+ * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
+ * @version $Id$
+ */
 @Controller
 @RequestMapping("admin")
 public class AdminPageController {

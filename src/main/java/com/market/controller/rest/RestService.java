@@ -1,20 +1,25 @@
 /**
- * Copyright (c) 2015. Liroyd. All rights reserved.
+ * Copyright (c) 2015, Liroyd
+ * All rights reserved.
  */
-
 package com.market.controller.rest;
 
 import com.market.model.RestEntity;
 import com.market.model.Role;
 import com.market.model.User;
+import java.util.HashSet;
+import java.util.Set;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashSet;
-import java.util.Set;
-
+/**
+ * Rest Service.
+ *
+ * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
+ * @version $Id$
+ */
 @RestController
 @RequestMapping("/rest/")
 public class RestService {

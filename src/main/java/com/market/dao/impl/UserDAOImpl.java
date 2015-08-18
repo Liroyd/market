@@ -1,12 +1,14 @@
 /**
- * Copyright (c) 2015. Liroyd. All rights reserved.
+ * Copyright (c) 2015, Liroyd
+ * All rights reserved.
  */
-
 package com.market.dao.impl;
 
 import com.market.dao.UserDAO;
 import com.market.model.Role;
 import com.market.model.User;
+import java.util.List;
+import java.util.Set;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,9 +17,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import java.util.List;
-import java.util.Set;
-
+/**
+ * UserDAO Implementation.
+ *
+ * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
+ * @version $Id$
+ */
 @Repository
 @Transactional
 public class UserDAOImpl implements UserDAO{

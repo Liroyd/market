@@ -1,11 +1,12 @@
 /**
- * Copyright (c) 2015. Liroyd. All rights reserved.
+ * Copyright (c) 2015, Liroyd
+ * All rights reserved.
  */
-
 package com.market.dao.impl;
 
 import com.market.dao.ProductDAO;
 import com.market.model.Product;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,8 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
+/**
+ * ProductDAO Implementation.
+ *
+ * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
+ * @version $Id$
+ */
 @Repository
 @Transactional(readOnly = true)
 public class ProductDAOImpl implements ProductDAO {

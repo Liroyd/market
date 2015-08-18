@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2015. Liroyd. All rights reserved.
+ * Copyright (c) 2015, Liroyd
+ * All rights reserved.
  */
-
 package com.market.controller;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Home Controller.
+ *
+ * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
+ * @version $Id$
+ */
 @Controller
 @RequestMapping("/")
 public class HomeController {

@@ -1,12 +1,18 @@
 /**
- * Copyright (c) 2015. Liroyd. All rights reserved.
+ * Copyright (c) 2015, Liroyd
+ * All rights reserved.
  */
-
 package com.market.model;
 
-import javax.persistence.Id;
 import java.util.Set;
+import javax.persistence.Id;
 
+/**
+ * User Model.
+ *
+ * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
+ * @version $Id$
+ */
 public class User {
 
     @Id

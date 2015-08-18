@@ -1,11 +1,12 @@
 /**
- * Copyright (c) 2015. Liroyd. All rights reserved.
+ * Copyright (c) 2015, Liroyd
+ * All rights reserved.
  */
-
 package com.market.dao.impl;
 
 import com.market.dao.RoleDAO;
 import com.market.model.Role;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,8 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
+/**
+ *Role DAO Implementation.
+ *
+ * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
+ * @version $Id$
+ */
 @Repository
 @Transactional(readOnly=true)
 public class RoleDAOImpl implements RoleDAO {
@@ -27,8 +32,9 @@ public class RoleDAOImpl implements RoleDAO {
         Query query = openSession().createQuery("from Role r where r.name = :name");
         query.setParameter("name", name);
         List roleList = query.list();
-        if (!roleList.isEmpty())
+        if (!roleList.isEmpty()) {
             return (Role) roleList.get(0);
+        }
         else
             return null;
     }

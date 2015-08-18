@@ -11,13 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Products Service.
+ * Product Service.
  *
  * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
  * @version $Id$
  */
 @Service
-public class ProductsService {
+public class ProductService {
 
     /**
      * ProductDAO.
