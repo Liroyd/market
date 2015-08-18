@@ -23,14 +23,21 @@ import java.util.List;
 @Controller
 @RequestMapping("market")
 public class MarketController {
-
+    /**
+     * Product service.
+     */
     @Autowired
     private ProductService productService;
 
+    /**
+     * Controller GET /market.
+     * @param model Model
+     * @return market jsp page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String fillParametersForAdminPage(ModelMap model) {
         model.addAttribute("marketTitle", "You can see our stuff:)");
-        List<Product> products = productService.getProducts();
+        List<Product> products = this.productService.getProducts();
         model.addAttribute("products", products);
         return "market";
     }

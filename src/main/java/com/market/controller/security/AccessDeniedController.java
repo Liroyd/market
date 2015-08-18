@@ -17,7 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("accessDenied")
 public class AccessDeniedController {
-
+    /**
+     * Security controller access denied.
+     * @param model Model
+     * @return security/accessDenied jsp page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String formFarewellMessage(ModelMap model) {
         model.addAttribute("accessDeniedMessage", "Sorry... You don't have permission!");

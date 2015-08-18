@@ -17,7 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("logoutSuccess")
 public class LogoutSuccessController {
-
+    /**
+     * Security controller logout.
+     * @param model Model
+     * @return security/logoutSuccess jsp page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String formFarewellMessage(ModelMap model) {
         model.addAttribute("farewellMessage", "You have been logged out successfully. Bye bye...");

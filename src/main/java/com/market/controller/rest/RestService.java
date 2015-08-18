@@ -23,7 +23,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/rest/")
 public class RestService {
+    /**
+     * Quantity.
+     */
+    public final static int QUANTITY = 100;
 
+    /**
+     * Rest json GET /rest/user/{name}.
+     * @return User
+     */
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
     public User getUserJson() {
         Role role = new Role("lol");
@@ -32,28 +40,51 @@ public class RestService {
         return new User("Name","Password", roles);
     }
 
+    /**
+     * Rest String GET /rest/{name}.
+     * @param name Name
+     * @return "Hello" + name
+     */
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public String getGreeting(@PathVariable String name) {
-        return "Hello "+name;
+        return "Hello " + name;
     }
 
+    /**
+     * Rest json GET /rest/json.
+     * @return Rest entity
+     */
     @RequestMapping(value = "/json", method = RequestMethod.GET, produces = "application/json")
     public RestEntity getJsonRestEntity() {
-        return new RestEntity("Name", 100);
+        return new RestEntity("Name", QUANTITY);
     }
 
+    /**
+     * Rest json GET /rest/json/{name}.
+     * @param name Name
+     * @return Rest entity
+     */
     @RequestMapping(value = "/json/{name}", method = RequestMethod.GET, produces = "application/json")
     public RestEntity getJsonRestEntity(@PathVariable String name) {
-        return new RestEntity(name, 100);
+        return new RestEntity(name, QUANTITY);
     }
 
+    /**
+     * Rest xml GET /rest/xml.
+     * @return Rest entity
+     */
     @RequestMapping(value = "/xml", method = RequestMethod.GET)
     public RestEntity getXmlRestEntity() {
-        return new RestEntity("Name", 100);
+        return new RestEntity("Name", QUANTITY);
     }
 
+    /**
+     * Rest xml GET /rest/xml/{name}.
+     * @param name Name
+     * @return Rest entity
+     */
     @RequestMapping(value="/xml/{name}", method = RequestMethod.GET)
     public RestEntity getXmlRestEntity(@PathVariable String name) {
-        return new RestEntity(name, 100);
+        return new RestEntity(name, QUANTITY);
     }
 }

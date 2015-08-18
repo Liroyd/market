@@ -18,15 +18,26 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class RoleService {
-
+    /**
+     * RoleDAO.
+     */
     @Autowired
     RoleDAO roleDAO;
 
+    /**
+     * Get role.
+     * @param name Role name
+     * @return Role
+     */
     public Role getRole(String name) {
-        return roleDAO.getRole(name);
+        return this.roleDAO.getRole(name);
     }
 
+    /**
+     * Get Roles.
+     * @return List of Roles
+     */
     public List<Role> getRoles() {
-        return roleDAO.getRoles();
+        return this.roleDAO.getRoles();
     }
 }

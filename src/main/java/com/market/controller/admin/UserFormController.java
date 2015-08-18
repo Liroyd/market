@@ -22,21 +22,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("admin")
 public class UserFormController {
-
+    /**
+     * User service
+     */
     @Autowired
     UserService userService;
 
+    /**
+     * Controller POST /admin/create
+     * @param user User
+     * @return Success message or null
+     */
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "create", method = RequestMethod.POST)
     @ResponseBody
     public String createNewUser(User user) {
-        if (userService.isUserExists(user.getName())) {
+        if (this.userService.isUserExists(user.getName())) {
             return null;
         }
         user = userService.createUser(user);
         return "User '"+user.getName()+"' has been successfully created!";
     }
 
+    /**
+     * Controller DELETE /admin/delete
+     * @param user User
+     * @return Success message or null
+     */
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "delete", method = RequestMethod.DELETE)
     @ResponseBody
@@ -45,7 +57,7 @@ public class UserFormController {
         if (Constants.ADMIN_USER.equals(name)) {
             return null;
         }
-        userService.deleteUser(name);
+        this.userService.deleteUser(name);
         return "User '"+ name +"' has been successfully deleted!";
     }
 }

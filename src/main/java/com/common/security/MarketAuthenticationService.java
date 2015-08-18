@@ -27,15 +27,23 @@ import org.springframework.transaction.annotation.Transactional;
  * @version $Id$
  */
 @Service
-@Transactional(readOnly=true)
+@Transactional(readOnly = true)
 public class MarketAuthenticationService implements UserDetailsService {
-
+    /**
+     * UserDAO.
+     */
     @Autowired
     private UserDAO userDAO;
 
+    /**
+     * Load user by username.
+     * @param login User login
+     * @return User details
+     * @throws UsernameNotFoundException
+     */
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {
-        User user = userDAO.getUser(login);
+        User user = this.userDAO.getUser(login);
         if (user != null) {
             return new org.springframework.security.core.userdetails.User(
                     user.getName(),
@@ -44,16 +52,21 @@ public class MarketAuthenticationService implements UserDetailsService {
                     true,
                     true,
                     true,
-                    getAuthorities(user.getRoles())
+                    this.getAuthorities(user.getRoles())
             );
         } else {
             throw new UsernameNotFoundException("User not found");
         }
     }
 
-    public Collection<? extends GrantedAuthority> getAuthorities(Set<Role> roles) {
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        for (Role role : roles) {
+    /**
+     * Get authorities.
+     * @param roles User roles
+     * @return Authorities
+     */
+    public Collection<? extends GrantedAuthority> getAuthorities(final Set<Role> roles) {
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>(roles.size());
+        for (final Role role : roles) {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return authorities;

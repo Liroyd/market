@@ -21,24 +21,42 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class UsersPersonalPageController {
-
+    /**
+     * User service.
+     */
     @Autowired
     private UserService userService;
 
+    /**
+     * Controller GET /personalPage.
+     * @param model Model
+     * @param principal Current user
+     * @return Personal page of user or admin page
+     */
     @RequestMapping(value = "personalPage", method = RequestMethod.GET)
     public String redirectToPersonalPage(ModelMap model, Principal principal) {
-        if (principal != null && userService.hasRole(principal.getName(), Constants.ADMIN_ROLE)) {
+        if (principal != null && this.userService.hasRole(principal.getName(), Constants.ADMIN_ROLE)) {
             return "redirect:/admin/";
         }
         fillGreetingMessageForPersonalPage(model, principal);
         return "personalPage";
     }
 
+    /**
+     * Fill greeting message.
+     * @param model Model
+     * @param principal Current user
+     */
     public void fillGreetingMessageForPersonalPage(ModelMap model, Principal principal) {
         String greetingMessage = "Hello "+getUserName(principal)+". What's up?";
         model.addAttribute("greetingMessage", greetingMessage);
     }
 
+    /**
+     * Get user name.
+     * @param principal Current user
+     * @return User name
+     */
     private String getUserName(Principal principal) {
         if (principal != null) {
             return principal.getName();

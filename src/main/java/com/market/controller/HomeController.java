@@ -19,13 +19,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-
+    /**
+     * Controller GET /.
+     * @param model Model
+     * @return index jsp page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String fillParametersForWelcomePage(ModelMap model) {
         model.addAttribute("welcomeMessage", "Welcome to my Market!");
         return "index";
     }
 
+    /**
+     * Controller GET /{name}.
+     * @param name Name
+     * @param model Model
+     * @return index jsp page name
+     */
     @RequestMapping(value = "{name}", method = RequestMethod.GET)
     public String putSacredMessage(@PathVariable String name, ModelMap model) {
         model.addAttribute("welcomeMessage", name);
