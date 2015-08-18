@@ -4,16 +4,16 @@
  */
 package com.market.service;
 
+import com.market.dao.ProductDAO;
+import com.market.model.Product;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.market.dao.ProductDAO;
-import com.market.model.Product;
 
 /**
  * Products Service.
  *
- * @author Liroyd (Alex_Lioryd@yahoo.com)
+ * @author Alex Liroyd (Alex_Lioryd@yahoo.com)
  * @version $Id$
  */
 @Service
@@ -31,7 +31,7 @@ public class ProductsService {
      * @return Product
      */
     public Product getProduct(final String name) {
-        return productDAO.getProduct(name);
+        return this.productDAO.getProduct(name);
     }
 
     /**
@@ -39,6 +39,6 @@ public class ProductsService {
      * @return Products
      */
     public List<Product> getProducts() {
-        return productDAO.getProducts();
+        return this.productDAO.getProducts();
     }
 }
