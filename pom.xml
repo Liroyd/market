@@ -147,7 +147,7 @@
                 <artifactId>qulice-maven-plugin</artifactId>
                 <version>0.12.2</version>
                 <configuration>
-                    <license>file:${basedir}/documents/LICENSE.txt</license>
+                    <license>file:${basedir}/LICENSE.txt</license>
                 </configuration>
                 <executions>
                     <execution>

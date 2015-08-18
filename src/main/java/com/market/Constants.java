@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2015. Liroyd. All rights reserved.
+ */
+
 package com.market;
 
 public class Constants {
