@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.controller;
 
 import com.market.Constants;
@@ -48,7 +49,7 @@ public class UsersPersonalPageController {
      * @param principal Current user
      */
     public void fillGreetingMessageForPersonalPage(ModelMap model, Principal principal) {
-        String greetingMessage = "Hello "+getUserName(principal)+". What's up?";
+        String greetingMessage = "Hello " + getUserName(principal) + ". What's up?";
         model.addAttribute("greetingMessage", greetingMessage);
     }
 

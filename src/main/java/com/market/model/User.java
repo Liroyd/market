@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.model;
 
 import java.util.Set;

@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.dao.impl;
 
 import com.market.dao.UserDAO;
@@ -25,7 +26,7 @@ import org.springframework.util.StringUtils;
  */
 @Repository
 @Transactional
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -35,10 +36,11 @@ public class UserDAOImpl implements UserDAO{
         Query query = openSession().createQuery("from User u where u.name = :name");
         query.setParameter("name", name);
         List userList = query.list();
-        if (!userList.isEmpty())
+        if (!userList.isEmpty()) {
             return (User) userList.get(0);
-        else
+        } else {
             return null;
+        }
     }
 
     @SuppressWarnings("unchecked")

@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.model;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -16,8 +17,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "restEntity")
 public class RestEntity {
 
-    String name;
-    int quantity;
+    private String name;
+    private int quantity;
 
     public RestEntity(String name, int quantity) {
         this.name = name;

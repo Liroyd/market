@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.service;
 
 import com.market.dao.UserDAO;
@@ -24,7 +25,7 @@ public class UserService {
      * UserDAO.
      */
     @Autowired
-    UserDAO userDAO;
+    private UserDAO userDAO;
 
     /**
      * Get User.

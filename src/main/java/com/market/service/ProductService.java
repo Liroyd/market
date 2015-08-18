@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.service;
 
 import com.market.dao.ProductDAO;
@@ -23,7 +24,7 @@ public class ProductService {
      * ProductDAO.
      */
     @Autowired
-    ProductDAO productDAO;
+    private ProductDAO productDAO;
 
     /**
      * Get Product.

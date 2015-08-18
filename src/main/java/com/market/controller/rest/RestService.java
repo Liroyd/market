@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.controller.rest;
 
 import com.market.model.RestEntity;
@@ -26,7 +27,7 @@ public class RestService {
     /**
      * Quantity.
      */
-    public final static int QUANTITY = 100;
+    private final int quantity = 100;
 
     /**
      * Rest json GET /rest/user/{name}.
@@ -37,7 +38,7 @@ public class RestService {
         Role role = new Role("lol");
         Set<Role> roles = new HashSet<>();
         roles.add(role);
-        return new User("Name","Password", roles);
+        return new User("Name", "Password", roles);
     }
 
     /**
@@ -56,7 +57,7 @@ public class RestService {
      */
     @RequestMapping(value = "/json", method = RequestMethod.GET, produces = "application/json")
     public RestEntity getJsonRestEntity() {
-        return new RestEntity("Name", QUANTITY);
+        return new RestEntity("Name", quantity);
     }
 
     /**
@@ -66,7 +67,7 @@ public class RestService {
      */
     @RequestMapping(value = "/json/{name}", method = RequestMethod.GET, produces = "application/json")
     public RestEntity getJsonRestEntity(@PathVariable String name) {
-        return new RestEntity(name, QUANTITY);
+        return new RestEntity(name, quantity);
     }
 
     /**
@@ -75,7 +76,7 @@ public class RestService {
      */
     @RequestMapping(value = "/xml", method = RequestMethod.GET)
     public RestEntity getXmlRestEntity() {
-        return new RestEntity("Name", QUANTITY);
+        return new RestEntity("Name", quantity);
     }
 
     /**
@@ -83,8 +84,8 @@ public class RestService {
      * @param name Name
      * @return Rest entity
      */
-    @RequestMapping(value="/xml/{name}", method = RequestMethod.GET)
+    @RequestMapping(value = "/xml/{name}", method = RequestMethod.GET)
     public RestEntity getXmlRestEntity(@PathVariable String name) {
-        return new RestEntity(name, QUANTITY);
+        return new RestEntity(name, quantity);
     }
 }

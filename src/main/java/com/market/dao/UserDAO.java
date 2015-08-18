@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.dao;
 
 import com.market.model.Role;
@@ -17,9 +18,9 @@ import java.util.Set;
  */
 public interface UserDAO {
 
-    public User getUser(String name);
-    public List<User> getUsers();
-    public User createUser(String name, String password, Set<Role> roles);
-    public void deleteUser(String name);
-    public boolean hasRole(String userName, String role);
+    User getUser(String name);
+    List<User> getUsers();
+    User createUser(String name, String password, Set<Role> roles);
+    void deleteUser(String name);
+    boolean hasRole(String userName, String role);
 }

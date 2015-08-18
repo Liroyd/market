@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.dao.impl;
 
 import com.market.dao.RoleDAO;
@@ -21,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @version $Id$
  */
 @Repository
-@Transactional(readOnly=true)
+@Transactional(readOnly = true)
 public class RoleDAOImpl implements RoleDAO {
 
     @Autowired
@@ -34,9 +35,10 @@ public class RoleDAOImpl implements RoleDAO {
         List roleList = query.list();
         if (!roleList.isEmpty()) {
             return (Role) roleList.get(0);
-        }
-        else
+        } else {
             return null;
+        }
+
     }
 
     @SuppressWarnings("unchecked")

@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.service;
 
 import com.market.dao.RoleDAO;
@@ -22,7 +23,7 @@ public class RoleService {
      * RoleDAO.
      */
     @Autowired
-    RoleDAO roleDAO;
+    private RoleDAO roleDAO;
 
     /**
      * Get role.

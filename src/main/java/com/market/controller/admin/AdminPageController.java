@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.controller.admin;
 
 import com.market.model.Role;
@@ -87,6 +88,6 @@ public class AdminPageController {
      * @return Greeting message
      */
     private String getGreetingMessage(Principal principal) {
-        return "Hello "+principal.getName()+". How Do You do?";
+        return "Hello " + principal.getName() + ". How Do You do?";
     }
 }

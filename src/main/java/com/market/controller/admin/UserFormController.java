@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.controller.admin;
 
 import com.market.Constants;
@@ -26,7 +27,7 @@ public class UserFormController {
      * User service
      */
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     /**
      * Controller POST /admin/create
@@ -41,7 +42,7 @@ public class UserFormController {
             return null;
         }
         user = userService.createUser(user);
-        return "User '"+user.getName()+"' has been successfully created!";
+        return "User '" + user.getName() + "' has been successfully created!";
     }
 
     /**
@@ -58,6 +59,6 @@ public class UserFormController {
             return null;
         }
         this.userService.deleteUser(name);
-        return "User '"+ name +"' has been successfully deleted!";
+        return "User '" + name + "' has been successfully deleted!";
     }
 }

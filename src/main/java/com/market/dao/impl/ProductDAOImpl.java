@@ -1,7 +1,8 @@
-/**
+/*
  * Copyright (c) 2015, Liroyd
  * All rights reserved.
  */
+
 package com.market.dao.impl;
 
 import com.market.dao.ProductDAO;
@@ -32,10 +33,11 @@ public class ProductDAOImpl implements ProductDAO {
         Query query = openSession().createQuery("from Product p where p.name = :name");
         query.setParameter("name", name);
         List productList = query.list();
-        if (!productList.isEmpty())
+        if (!productList.isEmpty()) {
             return (Product) productList.get(0);
-        else
+        } else {
             return null;
+        }
     }
 
     @SuppressWarnings("unchecked")
