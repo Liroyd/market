@@ -27,7 +27,7 @@ public class RestService {
     /**
      * Quantity.
      */
-    private final int quantity = 100;
+    public static final int QUANTITY = 100;
 
     /**
      * Rest json GET /rest/user/{name}.
@@ -57,7 +57,7 @@ public class RestService {
      */
     @RequestMapping(value = "/json", method = RequestMethod.GET, produces = "application/json")
     public RestEntity getJsonRestEntity() {
-        return new RestEntity("Name", quantity);
+        return new RestEntity("Name", RestService.QUANTITY);
     }
 
     /**
@@ -67,7 +67,7 @@ public class RestService {
      */
     @RequestMapping(value = "/json/{name}", method = RequestMethod.GET, produces = "application/json")
     public RestEntity getJsonRestEntity(@PathVariable String name) {
-        return new RestEntity(name, quantity);
+        return new RestEntity(name, RestService.QUANTITY);
     }
 
     /**
@@ -76,7 +76,7 @@ public class RestService {
      */
     @RequestMapping(value = "/xml", method = RequestMethod.GET)
     public RestEntity getXmlRestEntity() {
-        return new RestEntity("Name", quantity);
+        return new RestEntity("Name", RestService.QUANTITY);
     }
 
     /**
@@ -86,6 +86,6 @@ public class RestService {
      */
     @RequestMapping(value = "/xml/{name}", method = RequestMethod.GET)
     public RestEntity getXmlRestEntity(@PathVariable String name) {
-        return new RestEntity(name, quantity);
+        return new RestEntity(name, RestService.QUANTITY);
     }
 }
