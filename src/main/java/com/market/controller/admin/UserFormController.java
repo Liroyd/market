@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @version $Id$
  */
 @Controller
-@RequestMapping("admin")
+@RequestMapping("admin/user")
 public class UserFormController {
     /**
      * User service
@@ -30,12 +30,12 @@ public class UserFormController {
     private UserService userService;
 
     /**
-     * Controller POST /admin/create
+     * Controller POST /admin/user
      * @param user User
      * @return Success message or null
      */
     @SuppressWarnings("unchecked")
-    @RequestMapping(value = "create", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String createNewUser(User user) {
         if (this.userService.isUserExists(user.getName())) {
@@ -46,12 +46,12 @@ public class UserFormController {
     }
 
     /**
-     * Controller DELETE /admin/delete
+     * Controller DELETE /admin/user
      * @param user User
      * @return Success message or null
      */
     @SuppressWarnings("unchecked")
-    @RequestMapping(value = "delete", method = RequestMethod.DELETE)
+    @RequestMapping(method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteUser(User user) {
       String name = user.getName();

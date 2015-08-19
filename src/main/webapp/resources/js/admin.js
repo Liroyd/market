@@ -8,7 +8,7 @@ $(document).ready(function() {
             return false;
         }
 
-        $.post('/admin/create', $(this).serialize(), function(response) {
+        $.post('/admin/user', $(this).serialize(), function(response) {
             if (response.length <= 0) {
                 var userExistsErrorId = $('#userExistsErrorId');
                 userExistsErrorId.show();
@@ -29,7 +29,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'DELETE',
-            url: '/admin/delete/',
+            url: '/admin/user',
             data: $('#deleteUserForm').serialize(),
             success: function(response) {
                 if (response.length <= 0) {
