@@ -38,7 +38,7 @@ public class MarketAuthenticationService implements UserDetailsService {
      * Load user by username.
      * @param login User login
      * @return User details
-     * @throws UsernameNotFoundException
+     * @throws UsernameNotFoundException if user was not find in DB
      */
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {

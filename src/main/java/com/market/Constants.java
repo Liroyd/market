@@ -16,6 +16,9 @@ public final class Constants {
     public static final String ADMIN_ROLE = "ROLE_ADMIN";
     public static final String ADMIN_USER = "admin";
 
+    /**
+     * Default private constructor.
+     */
     private Constants() {
     }
 }

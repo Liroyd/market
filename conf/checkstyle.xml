@@ -12,6 +12,10 @@
         <property name="basedir" value="${basedir}"/>
     -->
 
+    <module name="SuppressionFilter">
+        <property name="file" value="conf/suppressions.xml"/>
+    </module>
+
     <!-- Checks that a package-info.java file exists for each package.     -->
     <!-- See http://checkstyle.sf.net/config_javadoc.html#JavadocPackage -->
     <!--module name="JavadocPackage"/> Turned Off-->
