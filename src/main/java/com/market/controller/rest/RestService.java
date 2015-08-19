@@ -32,11 +32,11 @@ public class RestService {
      * @return User
      */
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
-    public User getUserJson() {
+    public User getUserJson(@PathVariable String name) {
         Role role = new Role("lol");
         Set<Role> roles = new HashSet<>();
         roles.add(role);
-        return new User("Name", "Password", roles);
+        return new User(name, "Password", roles);
     }
 
     /**
