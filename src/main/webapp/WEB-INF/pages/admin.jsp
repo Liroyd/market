@@ -27,7 +27,7 @@
     <label id="userNameLabel" for="userName">Name</label>
     <input id="userName" name="Name"/>
     <label id="userPasswordLabel" for="userPassword">Password</label>
-    <input id="userPassword" name="Password"/>
+    <input type="password" id="userPassword" name="Password"/>
     <label id="userRolesLabel">Select Role(s)</label>
     <form:select path="userRoles" id="userRoles" items="${userRoles}" name="Roles" multiple="multiple"/>
     <input type="submit" value="Add user" />
