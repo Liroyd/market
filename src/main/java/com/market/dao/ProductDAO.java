@@ -16,6 +16,16 @@ import java.util.List;
  */
 public interface ProductDAO {
 
+    /**
+     * Get product by name.
+     * @param name Name
+     * @return Product
+     */
     Product getProduct(String name);
+
+    /**
+     * Get all products.
+     * @return Products
+     */
     List<Product> getProducts();
 }

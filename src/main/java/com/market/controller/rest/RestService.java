@@ -24,9 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/rest/")
 public class RestService {
-    /**
-     * Quantity.
-     */
+
     public static final int QUANTITY = 100;
 
     /**

@@ -23,14 +23,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("admin/user")
 public class UserFormController {
-    /**
-     * User service
-     */
+
     @Autowired
     private UserService userService;
 
     /**
-     * Controller POST /admin/user
+     * Controller POST /admin/user.
      * @param user User
      * @return Success message or null
      */
@@ -46,7 +44,7 @@ public class UserFormController {
     }
 
     /**
-     * Controller DELETE /admin/user
+     * Controller DELETE /admin/user.
      * @param user User
      * @return Success message or null
      */

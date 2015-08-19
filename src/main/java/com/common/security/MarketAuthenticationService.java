@@ -30,9 +30,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly = true)
 public class MarketAuthenticationService implements UserDetailsService {
-    /**
-     * UserDAO.
-     */
+
     @Autowired
     private UserDAO userDAO;
 

@@ -24,9 +24,7 @@ import java.util.List;
 @Controller
 @RequestMapping("market")
 public class MarketController {
-    /**
-     * Product service.
-     */
+
     @Autowired
     private ProductService productService;
 

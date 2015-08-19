@@ -27,14 +27,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("admin")
 public class AdminPageController {
-    /**
-     * Role service.
-     */
+
     @Autowired
     private RoleService roleService;
-    /**
-     * User service.
-     */
+
     @Autowired
     private UserService userService;
 

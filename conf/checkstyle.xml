@@ -53,10 +53,10 @@
 
         <!-- Checks for Javadoc comments.                     -->
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
-        <!--module name="JavadocMethod"/>  Turned Off-->
-        <!--module name="JavadocType"/>  Turned Off-->
+        <module name="JavadocMethod">
+        <module name="JavadocType"/>
         <!--module name="JavadocVariable"/> Turned Off-->
-        <!--module name="JavadocStyle"/>  Turned Off-->
+        <module name="JavadocStyle"/>
 
 
         <!-- Checks for Naming Conventions.                  -->

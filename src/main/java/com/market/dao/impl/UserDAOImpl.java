@@ -78,6 +78,10 @@ public class UserDAOImpl implements UserDAO {
         return false;
     }
 
+    /**
+     * Get current session.
+     * @return Session
+     */
     private Session openSession() {
         return sessionFactory.getCurrentSession();
     }

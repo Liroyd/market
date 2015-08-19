@@ -15,7 +15,16 @@ import java.util.List;
  * @version $Id$
  */
 public interface RoleDAO {
-
+    /**
+     * Get all roles of user.
+     * @param name User name
+     * @return Roles
+     */
     Role getRole(String name);
+
+    /**
+     * Get all Roles.
+     * @return Roles
+     */
     List<Role> getRoles();
 }

@@ -22,9 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class UsersPersonalPageController {
-    /**
-     * User service.
-     */
+
     @Autowired
     private UserService userService;
 

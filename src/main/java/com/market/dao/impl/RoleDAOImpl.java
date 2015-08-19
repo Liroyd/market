@@ -48,6 +48,10 @@ public class RoleDAOImpl implements RoleDAO {
         return query.list();
     }
 
+    /**
+     * Get current session.
+     * @return Session
+     */
     private Session openSession() {
         return sessionFactory.getCurrentSession();
     }

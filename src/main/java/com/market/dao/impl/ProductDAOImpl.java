@@ -47,6 +47,10 @@ public class ProductDAOImpl implements ProductDAO {
         return query.list();
     }
 
+    /**
+     * Get current session.
+     * @return Session
+     */
     private Session openSession() {
         return sessionFactory.getCurrentSession();
     }
