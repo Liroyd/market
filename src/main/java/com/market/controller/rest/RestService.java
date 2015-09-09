@@ -29,6 +29,7 @@ public class RestService {
 
     /**
      * Rest json GET /rest/user/{name}.
+     * @param name Name
      * @return User
      */
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
